@@ -20,10 +20,17 @@ import junit.framework.TestCase;
 import org.apache.commons.lang.StringUtils;
 import org.milyn.edisax.model.internal.Delimiters;
 import org.xml.sax.InputSource;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Arrays;
+
+import org.apache.commons.lang.StringUtils;
+import org.junit.Test;
+import org.milyn.edisax.model.internal.Delimiters;
+import org.xml.sax.InputSource;
 
 /**
  * @author tfennelly
@@ -124,6 +131,7 @@ public class BufferedSegmentReaderTest extends TestCase {
     private BufferedSegmentReader createSegmentReader(String input, String segmentDelim, String fieldDelim) {
         InputSource inputSource = new InputSource(new ByteArrayInputStream(input.getBytes()));
         Delimiters delimiters = new Delimiters().setSegment(segmentDelim).setField(fieldDelim);
+        delimiters.setEscape("?");
         BufferedSegmentReader reader = new BufferedSegmentReader(inputSource, delimiters);
         return reader;
     }
