@@ -50,6 +50,14 @@
                         <version>1.4.0</version>
                         <scope>runtime</scope>
                     </dependency>
+
+               <dependency>
+                <groupId>com.sun</groupId>
+                <artifactId>tools</artifactId>
+                <version>${jdk.version}</version>
+                <scope>system</scope>
+                <systemPath>${java.home}/../lib/tools.jar</systemPath>
+              </dependency>
                 </dependencies>
             </plugin>
         </plugins>
